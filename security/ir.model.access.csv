@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_citizen_request,citizen.request,model_citizen_request,,1,1,1,1
+access_citizen_person,citizen.person,model_citizen_person,,1,1,1,1
+access_citizen_category,citizen.category,model_citizen_category,,1,1,1,1

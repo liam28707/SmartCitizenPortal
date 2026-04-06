@@ -1,0 +1,104 @@
+
+<odoo>
+
+<!-- DEPARTMENT FORM VIEW -->
+
+    <record id="view_category_form" model="ir.ui.view">
+        <field name="name">citizen.category.form</field>
+        <field name="model">citizen.category</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <field name="name"/>
+                    <field name="description"/>
+                </group>
+            </form>
+        </field>
+    </record>
+
+    <!-- DEPARTMENT LIST VIEW -->
+
+    <record id="view_category_tree" model="ir.ui.view">
+    <field name="name">citizen.category.list</field>
+    <field name="model">citizen.category</field>
+    <field name="arch" type="xml">
+        <list string="Departments">
+            <field name="name"/>
+            <field name="description"/>
+            <field name="request_count"/>
+        </list>
+    </field>
+    </record>
+
+    <!-- DEPARTMENT KANBAN VIEW -->
+
+    <record id="view_category_kanban" model="ir.ui.view">
+    <field name="name">citizen.category.kanban</field>
+    <field name="model">citizen.category</field>
+    <field name="arch" type="xml">
+        <kanban class="o_kanban_mobile">
+
+            <field name="name"/>
+            <field name="description"/>
+            <field name="icon"/>
+            <field name="request_count"/>
+
+            <templates>
+                <t t-name="card">
+
+                    <div class="oe_kanban_card o_kanban_record" style="border: none; box-shadow: none; background: transparent;">
+
+                        <!-- ICON -->
+                        <div style="text-align:center; margin-bottom:10px;">
+                            <i t-att-class="'fa ' + record.icon.value"
+                               style="font-size:40px; color:#6b7280;"/>
+                        </div>
+
+                        <!-- TITLE -->
+                        <div style="text-align:center;">
+                            <strong style="font-size:18px;">
+                                <field name="name"/>
+                            </strong>
+                        </div>
+
+                        <!-- DESCRIPTION -->
+                        <div style="text-align:center; color:#6b7280; margin-top:5px;">
+                            <field name="description"/>
+                        </div>
+
+                        <!-- STATS -->
+                        <div style="text-align:center; margin-top:10px;">
+                            <span class="badge bg-info">
+                                <field name="request_count"/> Requests
+                            </span>
+                        </div>
+
+                        <!-- ACTION BUTTON -->
+                        <div style="text-align:center; margin-top:12px;">
+                            <button type="object"
+                                    name="action_view_requests"
+                                    class="btn btn-primary btn-sm">
+                                View Requests
+                            </button>
+                        </div>
+
+                    </div>
+
+                </t>
+            </templates>
+        </kanban>
+    </field>
+</record>
+
+    <record id="action_citizen_category" model="ir.actions.act_window">
+        <field name="name">Departments</field>
+        <field name="res_model">citizen.category</field>
+        <field name="view_mode">kanban,list,form</field>
+    </record>
+
+    <record id="action_view_requests_from_category_window" model="ir.actions.act_window">
+        <field name="name">View Requests</field>
+        <field name="res_model">citizen.category</field>
+        <field name="type">object</field>
+    </record>
+</odoo>

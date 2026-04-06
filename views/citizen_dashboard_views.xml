@@ -1,0 +1,21 @@
+<odoo>
+
+<record id="view_citizen_request_dept_pie" model="ir.ui.view">
+    <field name="name">citizen.request.dept.pie</field>
+    <field name="model">citizen.request</field>
+    <field name="arch" type="xml">
+        <graph string="Department Distribution" type="pie" sample="1">
+            <field name="category_id"/>
+        </graph>
+    </field>
+</record>
+    <record id="action_citizen_dashboard" model="ir.actions.act_window">
+        <field name="name">Complaints by Department</field>
+        <field name="res_model">citizen.request</field> <field name="view_mode">graph,pivot</field>
+        <field name="context">{
+            'graph_mode': 'pie',
+            'graph_groupbys': ['category_id'], 
+            'graph_measure': '__count__'
+        }</field>
+    </record>
+</odoo>

@@ -1,0 +1,31 @@
+<odoo>
+  
+  <menuitem id="menu_citizen_root" name="Citizen Portal"/>
+
+  <menuitem id="menu_citizen_dashboard"
+          name="Dashboard"
+          parent="menu_citizen_root"
+          action="action_citizen_dashboard"
+          sequence="10"/>
+          
+  <menuitem id="menu_citizen_categories"
+          name="Departments"
+          parent="menu_citizen_root"
+          action="action_citizen_category"
+          sequence="20"/>
+
+<menuitem id="menu_citizen_requests"
+          name="Requests"
+          parent="menu_citizen_root"
+          action="action_citizen_request"
+          sequence="30"/>
+
+
+<menuitem id="menu_citizen_people"
+          name="Citizens"
+          parent="menu_citizen_root"
+          action="action_citizen_people"
+          sequence="40"
+          />
+          
+</odoo>
