@@ -1,4 +1,4 @@
-# SmartCitizenPortal
+# Smart Citizen Portal
 AI-powered Odoo module for smart citizen complaint management with automated classification, prioritization, and workflow tracking for government services.
 
 # 🚀 Setup Instructions
@@ -24,7 +24,7 @@ git clone https://github.com/odoo/tutorials
 Next, clone this project (your repo) into the same directory (or inside your custom addons folder):
 
 ```bash
-git clone <YOUR_REPO_LINK>
+git clone https://github.com/liam28707/SmartCitizenPortal
 ```
 
 ---
