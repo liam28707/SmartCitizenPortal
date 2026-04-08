@@ -86,8 +86,11 @@ class CitizenRequest(models.Model):
         Enforces business rule at ORM level.
         """
         for record in self:
-            record.generate_ai_summary()
-            record.status = 'submitted'
+            if not record.citizen_id.is_verified:
+                raise ValidationError("Citizen must be verified (valid National ID required).")
+            else:
+                    record.generate_ai_summary()
+                    record.status = 'submitted'
 
     def write(self, vals):
         """

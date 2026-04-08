@@ -68,7 +68,15 @@ class Citizen(models.Model):
         for record in self:
             if not record.national_id:
                 continue
+            
+            existing = self.search([
+            ('national_id', '=', record.national_id),
+            ('id', '!=', record.id)
+            ], limit=1)
 
+            if existing:
+                raise ValidationError("This National ID already exists!")
+        
             # 1. Regex Pattern: 783 - 4digits - 7digits - 1digit
             # ^783-\d{4}-\d{7}-\d{1}$
             pattern = r'^783-\d{4}-\d{7}-\d{1}$'
